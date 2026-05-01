@@ -1,0 +1,6 @@
+# MAI committare i secrets
+secrets.yaml
+*.key
+*.pem
+*.log
+.env
