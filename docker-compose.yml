@@ -25,7 +25,7 @@ services:
       - DOCKER_INFLUXDB_INIT_PASSWORD=snoopy_influx_2024
       - DOCKER_INFLUXDB_INIT_ORG=snoopy-lab
       - DOCKER_INFLUXDB_INIT_BUCKET=aria
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=snoopy-token-influx-2024
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUX_ADMIN_TOKEN}
     restart: unless-stopped
 
   grafana:
@@ -59,6 +59,8 @@ services:
     container_name: telegraf
     volumes:
       - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    environment:
+      - INFLUX_TOKEN=${INFLUX_TOKEN}
     depends_on:
       - mosquitto
       - influxdb
