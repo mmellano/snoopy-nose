@@ -67,3 +67,13 @@ sensor:
   - platform: wifi_signal
     name: "WiFi Signal"
     update_interval: 60s
+
+# A che rete/apparato è agganciato il Naso.
+# SSID = nome rete (leggibilità); BSSID = MAC dell'access point: è questo
+# che distingue il router dal repeater quando condividono lo stesso SSID.
+text_sensor:
+  - platform: wifi_info
+    ssid:
+      name: "WiFi SSID"
+    bssid:
+      name: "WiFi BSSID"
