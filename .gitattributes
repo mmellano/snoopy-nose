@@ -1,0 +1,7 @@
+# Gli script deployati sul box (Linux) devono restare LF anche se il repo
+# viene clonato/editato su Windows: con CRLF i .sh si inchiodano sullo shebang.
+*.sh text eol=lf
+*.py text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.conf text eol=lf
