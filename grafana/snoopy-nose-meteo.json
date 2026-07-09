@@ -1,0 +1,736 @@
+{
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "afkqkgm01u0owf"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "red",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "afkqkgm01u0owf"
+          },
+          "query": "src = (s) => from(bucket: \"aria\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"aria\" and r.sensor == s)\nsrc(s: \"temperatura\") |> max() |> keep(columns: [\"_time\", \"_value\"])",
+          "refId": "A"
+        }
+      ],
+      "title": "🌡️ Temp MAX",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "afkqkgm01u0owf"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "super-light-blue",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "afkqkgm01u0owf"
+          },
+          "query": "src = (s) => from(bucket: \"aria\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"aria\" and r.sensor == s)\nsrc(s: \"temperatura\") |> min() |> keep(columns: [\"_time\", \"_value\"])",
+          "refId": "A"
+        }
+      ],
+      "title": "🌡️ Temp min",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "afkqkgm01u0owf"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "afkqkgm01u0owf"
+          },
+          "query": "src = (s) => from(bucket: \"aria\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"aria\" and r.sensor == s)\nsrc(s: \"umidita\") |> max() |> keep(columns: [\"_time\", \"_value\"])",
+          "refId": "A"
+        }
+      ],
+      "title": "💧 Umidità MAX",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "afkqkgm01u0owf"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "orange",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "afkqkgm01u0owf"
+          },
+          "query": "src = (s) => from(bucket: \"aria\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"aria\" and r.sensor == s)\nsrc(s: \"umidita\") |> min() |> keep(columns: [\"_time\", \"_value\"])",
+          "refId": "A"
+        }
+      ],
+      "title": "💧 Umidità min",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "afkqkgm01u0owf"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisSoftMin": null,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "lineInterpolation": "smooth",
+            "pointSize": 3,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "temperatura"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "celsius"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "left"
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              },
+              {
+                "id": "displayName",
+                "value": "Temperatura"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "umidita"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "humidity"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              },
+              {
+                "id": "displayName",
+                "value": "Umidita"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pressione"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "pressurehpa"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              },
+              {
+                "id": "displayName",
+                "value": "Pressione"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "afkqkgm01u0owf"
+          },
+          "query": "from(bucket: \"aria\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"aria\" and (r.sensor == \"temperatura\" or r.sensor == \"umidita\" or r.sensor == \"pressione\"))\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"sensor\", \"_value\"])\n  |> group()\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"sensor\"], valueColumn: \"_value\")\n  |> sort(columns: [\"_time\"])\n",
+          "refId": "A"
+        }
+      ],
+      "title": "Temperatura, Umidità e Pressione",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "afkqkgm01u0owf"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left"
+          },
+          "decimals": 1
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Quando"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Valore"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "afkqkgm01u0owf"
+          },
+          "query": "src = (s) => from(bucket: \"aria\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"aria\" and r.sensor == s)\n\nmk = (t, lbl) => t |> keep(columns: [\"_time\", \"_value\"]) |> set(key: \"estremo\", value: lbl)\n\nunion(tables: [\n  mk(t: src(s: \"temperatura\") |> max(), lbl: \"🌡️ Temperatura MAX (°C)\"),\n  mk(t: src(s: \"temperatura\") |> min(), lbl: \"🌡️ Temperatura min (°C)\"),\n  mk(t: src(s: \"umidita\") |> max(), lbl: \"💧 Umidità MAX (%)\"),\n  mk(t: src(s: \"umidita\") |> min(), lbl: \"💧 Umidità min (%)\"),\n  mk(t: src(s: \"pressione\") |> max(), lbl: \"🔽 Pressione MAX (hPa)\"),\n  mk(t: src(s: \"pressione\") |> min(), lbl: \"🔽 Pressione min (hPa)\"),\n])\n  |> group()\n  |> keep(columns: [\"estremo\", \"_time\", \"_value\"])\n  |> sort(columns: [\"estremo\"])\n",
+          "refId": "A"
+        }
+      ],
+      "title": "Estremi del periodo (con orario)",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {
+              "_time": 2,
+              "_value": 1,
+              "estremo": 0
+            },
+            "renameByName": {
+              "_time": "Quando",
+              "_value": "Valore",
+              "estremo": "Estremo"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "afkqkgm01u0owf"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "lineInterpolation": "smooth",
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "displayName": "${__field.labels.giorno}",
+          "unit": "celsius"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "periodo scelto"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "-1 giorno"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "-2 giorni"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "-3 giorni"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "-7 giorni"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "afkqkgm01u0owf"
+          },
+          "query": "import \"date\"\n\nserie = (off, lbl) => from(bucket: \"aria\")\n  |> range(start: date.sub(d: off, from: v.timeRangeStart), stop: date.sub(d: off, from: v.timeRangeStop))\n  |> filter(fn: (r) => r._measurement == \"aria\" and r.sensor == \"temperatura\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> timeShift(duration: off)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> set(key: \"giorno\", value: lbl)\n\nunion(tables: [\n  serie(off: 0s, lbl: \"periodo scelto\"),\n  serie(off: 1d, lbl: \"-1 giorno\"),\n  serie(off: 2d, lbl: \"-2 giorni\"),\n  serie(off: 3d, lbl: \"-3 giorni\"),\n  serie(off: 7d, lbl: \"-7 giorni\"),\n])\n  |> group(columns: [\"giorno\"])\n  |> sort(columns: [\"_time\"])\n",
+          "refId": "A"
+        }
+      ],
+      "title": "🌡️ Temperatura — stessa ora, giorni scorsi",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "afkqkgm01u0owf"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "lineInterpolation": "smooth",
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "displayName": "${__field.labels.giorno}",
+          "unit": "humidity"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "periodo scelto"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "-1 giorno"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "-2 giorni"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "-3 giorni"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "-7 giorni"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "afkqkgm01u0owf"
+          },
+          "query": "import \"date\"\n\nserie = (off, lbl) => from(bucket: \"aria\")\n  |> range(start: date.sub(d: off, from: v.timeRangeStart), stop: date.sub(d: off, from: v.timeRangeStop))\n  |> filter(fn: (r) => r._measurement == \"aria\" and r.sensor == \"umidita\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> timeShift(duration: off)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> set(key: \"giorno\", value: lbl)\n\nunion(tables: [\n  serie(off: 0s, lbl: \"periodo scelto\"),\n  serie(off: 1d, lbl: \"-1 giorno\"),\n  serie(off: 2d, lbl: \"-2 giorni\"),\n  serie(off: 3d, lbl: \"-3 giorni\"),\n  serie(off: 7d, lbl: \"-7 giorni\"),\n])\n  |> group(columns: [\"giorno\"])\n  |> sort(columns: [\"_time\"])\n",
+          "refId": "A"
+        }
+      ],
+      "title": "💧 Umidità — stessa ora, giorni scorsi",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "snoopy",
+    "meteo"
+  ],
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timezone": "browser",
+  "title": "🐾 Snoopy-nose Meteo",
+  "uid": "snoopy-nose-meteo"
+}
